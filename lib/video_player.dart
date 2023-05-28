@@ -255,12 +255,12 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
   VideoPlayerController.asset(this.dataSource,
       {this.package,
       Future<ClosedCaptionFile>? closedCaptionFile,
+      this.data = const <String, String>{},
       this.videoPlayerOptions})
       : _closedCaptionFileFuture = closedCaptionFile,
         dataSourceType = DataSourceType.asset,
         formatHint = null,
         httpHeaders = const <String, String>{},
-        data = const <String, String>{},
         super(const VideoPlayerValue(duration: Duration.zero));
 
   /// Constructs a [VideoPlayerController] playing a video from obtained from
@@ -278,10 +278,10 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
     Future<ClosedCaptionFile>? closedCaptionFile,
     this.videoPlayerOptions,
     this.httpHeaders = const <String, String>{},
+    this.data = const <String, String>{},
   })  : _closedCaptionFileFuture = closedCaptionFile,
         dataSourceType = DataSourceType.network,
         package = null,
-        data = const <String, String>{},
         super(const VideoPlayerValue(duration: Duration.zero));
 
   /// Constructs a [VideoPlayerController] playing a video from a file.
@@ -291,13 +291,13 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
   VideoPlayerController.file(File file,
       {Future<ClosedCaptionFile>? closedCaptionFile,
       this.videoPlayerOptions,
-      this.httpHeaders = const <String, String>{}})
+      this.httpHeaders = const <String, String>{},
+      this.data = const <String, String>{},})
       : _closedCaptionFileFuture = closedCaptionFile,
         dataSource = Uri.file(file.absolute.path).toString(),
         dataSourceType = DataSourceType.file,
         package = null,
         formatHint = null,
-        data = const <String, String>{},
         super(const VideoPlayerValue(duration: Duration.zero));
 
   /// Constructs a [VideoPlayerController] playing a video from a contentUri.
@@ -305,7 +305,7 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
   /// This will load the video from the input content-URI.
   /// This is supported on Android only.
   VideoPlayerController.contentUri(Uri contentUri,
-      {Future<ClosedCaptionFile>? closedCaptionFile, this.videoPlayerOptions})
+      {Future<ClosedCaptionFile>? closedCaptionFile, this.videoPlayerOptions, this.data = const <String, String>{},})
       : assert(defaultTargetPlatform == TargetPlatform.android,
             'VideoPlayerController.contentUri is only supported on Android.'),
         _closedCaptionFileFuture = closedCaptionFile,
@@ -314,7 +314,6 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
         package = null,
         formatHint = null,
         httpHeaders = const <String, String>{},
-        data = const <String, String>{},
         super(const VideoPlayerValue(duration: Duration.zero));
 
   /// The URI to the video file. This will be in different formats depending on
