@@ -26,15 +26,15 @@ dependencies:
   video_player_android: 
    git:
     url: git@github.com:hungryemon/video_player_android_mux.git
-    ref: c4cb10751318d3c234dd811e65cbf6fcdd50776e
+    ref: 2913ba3daa040d507bb7c845a299566c91304c39
   video_player_avfoundation: 
    git:
     url: git@github.com:hungryemon/video_player_avfoundation_mux.git
-    ref: 02f762e922307f7f9e684404eab23e4158a63378
-  video_player_platform_interface: 
+    ref: e6d52a1087d3264d0bdc581eea2e3f78a5465b42
+  video_player_platform_interface_mux: 
    git:
     url: git@github.com:hungryemon/video_player_platform_interface_mux.git
-    ref: 458cf68334b228e66bdd76fae62e18d751338f3c
+    ref: 9ea9201517e15a40d23914902c1989f15caaa693
 
 dev_dependencies:
   flutter_test:
