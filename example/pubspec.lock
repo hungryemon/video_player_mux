@@ -650,8 +650,8 @@ packages:
     dependency: transitive
     description:
       path: "."
-      ref: "2913ba3daa040d507bb7c845a299566c91304c39"
-      resolved-ref: "2913ba3daa040d507bb7c845a299566c91304c39"
+      ref: "4e52201a552862d2eec15ca183defaf1e90e622a"
+      resolved-ref: "4e52201a552862d2eec15ca183defaf1e90e622a"
       url: "git@github.com:hungryemon/video_player_android_mux.git"
     source: git
     version: "2.4.4"
