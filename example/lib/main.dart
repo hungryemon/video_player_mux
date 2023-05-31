@@ -8,7 +8,7 @@
 /// video.
 
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
+import 'package:video_player_mux/video_player.dart';
 
 void main() {
   runApp(
@@ -154,7 +154,14 @@ class _ButterFlyAssetVideoState extends State<_ButterFlyAssetVideo> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset('assets/Butterfly-209.mp4');
+    _controller = VideoPlayerController.asset('assets/Butterfly-209.mp4',
+     data: {
+        "env_key": "YOUR_ENV_KEY", //MUST PROVIDE
+        "cpd_player_name": "YOUR_PLAYER_NAME",
+        "cpd_viewer_user_id": "YOUR_VIEWER_USER_ID",
+        "cvd_video_title": "YOUR_VIDEO_TITLE",
+        "cvd_video_id": "YOUR_VIDEO_ID",
+        });
 
     _controller.addListener(() {
       setState(() {});
@@ -221,6 +228,13 @@ class _BumbleBeeRemoteVideoState extends State<_BumbleBeeRemoteVideo> {
       'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
       closedCaptionFile: _loadCaptions(),
       videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true),
+       data: {
+        "env_key": "YOUR_ENV_KEY", //MUST PROVIDE
+        "cpd_player_name": "YOUR_PLAYER_NAME",
+        "cpd_viewer_user_id": "YOUR_VIEWER_USER_ID",
+        "cvd_video_title": "YOUR_VIDEO_TITLE",
+        "cvd_video_id": "YOUR_VIDEO_ID",
+        }
     );
 
     _controller.addListener(() {

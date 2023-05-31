@@ -1,5 +1,5 @@
-name: video_player_example
-description: Demonstrates how to use the video_player plugin.
+name: video_player_mux_example
+description: Demonstrates how to use the video_player_mux plugin.
 publish_to: none
 
 environment:
@@ -9,7 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  video_player:
+  video_player_mux:
     # When depending on this package from a real application you should use:
     #   video_player: ^x.y.z
     # See https://dart.dev/tools/pub/dependencies#version-constraints

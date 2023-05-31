@@ -11,7 +11,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:video_player/video_player.dart';
+import 'package:video_player_mux/video_player.dart';
 import 'package:video_player_platform_interface_mux/video_player_platform_interface.dart';
 
 class FakeController extends ValueNotifier<VideoPlayerValue>
