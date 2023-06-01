@@ -10,7 +10,8 @@ A Flutter plugin for Android for playing back video on a Widget surface and send
 |-------------|---------|
 | **Support** | SDK 21+ |
 
-![The example app running](https://github.com/hungryemon/video_player_mux/tree/master/doc/demo_ipod.gif?raw=true)
+<img src="/doc/demo_ipod.gif?raw=true" width="200px">
+
 
 ## Installation
 
