@@ -2,7 +2,7 @@
 
 # Video Player Mux plugin for Flutter with Mux monitoring feature
 
-[![pub package](https://img.shields.io/pub/v/video_player.svg)](https://pub.dev/packages/video_player_mux)
+
 
 A Flutter plugin for Android for playing back video on a Widget surface and sending data to mux for monitoring.
 

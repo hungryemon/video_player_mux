@@ -805,6 +805,7 @@ void main() {
 
         expect(controller.value.isPlaying, isFalse);
         expect(controller.value.position, nonzeroDuration);
+        fakeVideoEventStream.close();
       });
 
       testWidgets('playback status', (WidgetTester tester) async {
@@ -829,6 +830,7 @@ void main() {
         ));
         await tester.pumpAndSettle();
         expect(controller.value.isPlaying, isFalse);
+        fakeVideoEventStream.close();
       });
 
       testWidgets('buffering status', (WidgetTester tester) async {
@@ -863,6 +865,7 @@ void main() {
             .add(VideoEvent(eventType: VideoEventType.bufferingEnd));
         await tester.pumpAndSettle();
         expect(controller.value.isBuffering, isFalse);
+        fakeVideoEventStream.close();
       });
     });
   });
@@ -1137,6 +1140,7 @@ class FakeVideoPlayerPlatform extends VideoPlayerPlatform {
           duration: const Duration(seconds: 1)));
     }
     dataSources.add(dataSource);
+    stream.close();
     return nextTextureId++;
   }
 
