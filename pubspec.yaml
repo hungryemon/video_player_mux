@@ -1,10 +1,9 @@
 name: video_player_mux
 description: Flutter plugin for displaying inline video with other Flutter
-  widgets on Android, iOS(Monitor Mux Data enabled for Android only).
+  widgets on Android(Monitor Mux Data enabled for Android only).
 repository: https://github.com/hungryemon/video_player_mux/
 issue_tracker: https://github.com/hungryemon/video_player_mux/issues
 version: 1.0.0
-publish_to: 'none'
 
 environment:
   sdk: ">=2.17.0 <4.0.0"
@@ -15,26 +14,22 @@ flutter:
     platforms:
       android:
         default_package: video_player_android
-      ios:
-        default_package: video_player_avfoundation
 
 
 dependencies:
   flutter:
     sdk: flutter
   html: ^0.15.0
-  video_player_android: 
-   git:
-    url: git@github.com:hungryemon/video_player_android_mux.git
-    ref: 4e52201a552862d2eec15ca183defaf1e90e622a
-  video_player_avfoundation: 
-   git:
-    url: git@github.com:hungryemon/video_player_avfoundation_mux.git
-    ref: e6d52a1087d3264d0bdc581eea2e3f78a5465b42
-  video_player_platform_interface_mux: 
-   git:
-    url: git@github.com:hungryemon/video_player_platform_interface_mux.git
-    ref: 9ea9201517e15a40d23914902c1989f15caaa693
+  video_player_android_mux: ^1.0.1
+  video_player_platform_interface_mux: ^1.0.0
+  # video_player_android: 
+  #  git:
+  #   url: git@github.com:hungryemon/video_player_android_mux.git
+  #   ref: 4e52201a552862d2eec15ca183defaf1e90e622a
+  # video_player_platform_interface_mux: 
+  #  git:
+  #   url: git@github.com:hungryemon/video_player_platform_interface_mux.git
+  #   ref: 9ea9201517e15a40d23914902c1989f15caaa693
 
 dev_dependencies:
   flutter_test:

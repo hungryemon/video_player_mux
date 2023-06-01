@@ -1,28 +1,21 @@
 <?code-excerpt path-base="excerpts/packages/video_player_mux_example"?>
 
-# Video Player plugin for Flutter
+# Video Player Mux plugin for Flutter with Mux monitoring feature
 
 [![pub package](https://img.shields.io/pub/v/video_player.svg)](https://pub.dev/packages/video_player_mux)
 
-A Flutter plugin for iOS, Android and Web for playing back video on a Widget surface.
+A Flutter plugin for Android for playing back video on a Widget surface and sending data to mux for monitoring.
 
-|             | Android | iOS   |
-|-------------|---------|-------|
-| **Support** | SDK 16+ | 11.0+ |
+|             | Android |
+|-------------|---------|
+| **Support** | SDK 21+ |
 
-![The example app running in iOS](https://github.com/hungryemon/video_player_mux/tree/master/doc/demo_ipod.gif?raw=true)
+![The example app running](https://github.com/hungryemon/video_player_mux/tree/master/doc/demo_ipod.gif?raw=true)
 
 ## Installation
 
 First, add `video_player_mux` as a [dependency in your pubspec.yaml file](https://flutter.dev/using-packages/).
 
-### iOS
-
-If you need to access videos using `http` (rather than `https`) URLs, you will need to add
-the appropriate `NSAppTransportSecurity` permissions to your app's _Info.plist_ file, located
-in `<project root>/ios/Runner/Info.plist`. See
-[Apple's documentation](https://developer.apple.com/documentation/bundleresources/information_property_list/nsapptransportsecurity)
-to determine the right combination of entries for your use case and supported iOS versions.
 
 ### Android
 
@@ -33,14 +26,14 @@ Android Manifest file, located in `<project root>/android/app/src/main/AndroidMa
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-Add the following snippet in app-level build.gradle `<project root>/android/app/build.gradle`:
+Also add the following snippet in app-level build.gradle `<project root>/android/app/build.gradle`:
 ```gradle
 // Build the plugin project with warnings enabled. This is here rather than
 // in the plugin itself to avoid breaking clients that have different
 // warnings (e.g., deprecation warnings from a newer SDK than this project
 // builds with).
 gradle.projectsEvaluated {
-    project(":video_player_android") {
+    project(":video_player_android_mux") {
         tasks.withType(JavaCompile) {
             options.compilerArgs << "-Xlint:all" << "-Werror"
 
@@ -73,9 +66,6 @@ gradle.projectsEvaluated {
 
 ## Supported Formats
 
-- On iOS, the backing player is [AVPlayer](https://developer.apple.com/documentation/avfoundation/avplayer).
-  The supported formats vary depending on the version of iOS, [AVURLAsset](https://developer.apple.com/documentation/avfoundation/avurlasset) class
-  has [audiovisualTypes](https://developer.apple.com/documentation/avfoundation/avurlasset/1386800-audiovisualtypes?language=objc) that you can query for supported av formats.
 - On Android, the backing player is [ExoPlayer](https://google.github.io/ExoPlayer/),
   please refer [here](https://google.github.io/ExoPlayer/supported-formats.html) for list of supported formats.
 
@@ -84,7 +74,7 @@ gradle.projectsEvaluated {
 <?code-excerpt "basic.dart (basic-example)"?>
 ```dart
 import 'package:flutter/material.dart';
-import 'package:video_player_mux/video_player.dart';
+import 'package:video_player_mux/video_player_mux.dart';
 
 void main() => runApp(const VideoApp());
 

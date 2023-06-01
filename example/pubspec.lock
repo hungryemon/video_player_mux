@@ -105,14 +105,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "8.6.0"
-  change_app_package_name:
-    dependency: transitive
-    description:
-      name: change_app_package_name
-      sha256: f9ebaf68a4b5a68c581492579bb68273c523ef325fbf9ce2f1b57fb136ad023b
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.0"
   characters:
     dependency: transitive
     description:
@@ -639,24 +631,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
-  video_player_android:
+  video_player_android_mux:
     dependency: transitive
     description:
-      path: "."
-      ref: "4e52201a552862d2eec15ca183defaf1e90e622a"
-      resolved-ref: "4e52201a552862d2eec15ca183defaf1e90e622a"
-      url: "git@github.com:hungryemon/video_player_android_mux.git"
-    source: git
-    version: "2.4.4"
-  video_player_avfoundation:
-    dependency: transitive
-    description:
-      path: "."
-      ref: e6d52a1087d3264d0bdc581eea2e3f78a5465b42
-      resolved-ref: e6d52a1087d3264d0bdc581eea2e3f78a5465b42
-      url: "git@github.com:hungryemon/video_player_avfoundation_mux.git"
-    source: git
-    version: "2.4.4"
+      name: video_player_android_mux
+      sha256: "55c38aa2996b7e0c5de0fb33ceff3846bd37def6a2832880b93a7ae7f6d57a1c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   video_player_mux:
     dependency: "direct main"
     description:
@@ -667,12 +649,11 @@ packages:
   video_player_platform_interface_mux:
     dependency: transitive
     description:
-      path: "."
-      ref: "9ea9201517e15a40d23914902c1989f15caaa693"
-      resolved-ref: "9ea9201517e15a40d23914902c1989f15caaa693"
-      url: "git@github.com:hungryemon/video_player_platform_interface_mux.git"
-    source: git
-    version: "6.1.0"
+      name: video_player_platform_interface_mux
+      sha256: "4d1fff1be5e548dccaacef00b354f7b861348a410f7351595fb9aa4d92f89289"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   vm_service:
     dependency: transitive
     description:

@@ -4,7 +4,7 @@
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:video_player_mux/src/closed_caption_file.dart';
-import 'package:video_player_mux/video_player.dart';
+import 'package:video_player_mux/video_player_mux.dart';
 
 void main() {
   test('Parses SubRip file', () {

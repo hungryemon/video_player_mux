@@ -62,7 +62,7 @@ flutter {
 // warnings (e.g., deprecation warnings from a newer SDK than this project
 // builds with).
 gradle.projectsEvaluated {
-    project(":video_player_android") {
+    project(":video_player_android_mux") {
         tasks.withType(JavaCompile) {
             options.compilerArgs << "-Xlint:all" << "-Werror"
 

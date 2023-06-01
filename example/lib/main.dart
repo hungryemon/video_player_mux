@@ -8,7 +8,7 @@
 /// video.
 
 import 'package:flutter/material.dart';
-import 'package:video_player_mux/video_player.dart';
+import 'package:video_player_mux/video_player_mux.dart';
 
 void main() {
   runApp(

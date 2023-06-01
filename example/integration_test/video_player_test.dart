@@ -14,7 +14,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:video_player_mux/video_player.dart';
+import 'package:video_player_mux/video_player_mux.dart';
 
 const Duration _playDuration = Duration(seconds: 1);
 
