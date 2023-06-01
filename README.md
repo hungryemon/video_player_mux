@@ -1,20 +1,20 @@
-<?code-excerpt path-base="excerpts/packages/video_player_example"?>
+<?code-excerpt path-base="excerpts/packages/video_player_mux_example"?>
 
 # Video Player plugin for Flutter
 
-[![pub package](https://img.shields.io/pub/v/video_player.svg)](https://pub.dev/packages/video_player)
+[![pub package](https://img.shields.io/pub/v/video_player.svg)](https://pub.dev/packages/video_player_mux)
 
 A Flutter plugin for iOS, Android and Web for playing back video on a Widget surface.
 
-|             | Android | iOS   | Web   |
-|-------------|---------|-------|-------|
-| **Support** | SDK 16+ | 11.0+ | Any\* |
+|             | Android | iOS   |
+|-------------|---------|-------|
+| **Support** | SDK 16+ | 11.0+ |
 
-![The example app running in iOS](https://github.com/flutter/packages/blob/main/packages/video_player/video_player/doc/demo_ipod.gif?raw=true)
+![The example app running in iOS](https://github.com/hungryemon/video_player_mux/tree/master/doc/demo_ipod.gif?raw=true)
 
 ## Installation
 
-First, add `video_player` as a [dependency in your pubspec.yaml file](https://flutter.dev/using-packages/).
+First, add `video_player_mux` as a [dependency in your pubspec.yaml file](https://flutter.dev/using-packages/).
 
 ### iOS
 
@@ -33,13 +33,43 @@ Android Manifest file, located in `<project root>/android/app/src/main/AndroidMa
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-### Web
+Add the following snippet in app-level build.gradle `<project root>/android/app/build.gradle`:
+```gradle
+// Build the plugin project with warnings enabled. This is here rather than
+// in the plugin itself to avoid breaking clients that have different
+// warnings (e.g., deprecation warnings from a newer SDK than this project
+// builds with).
+gradle.projectsEvaluated {
+    project(":video_player_android") {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:all" << "-Werror"
 
-> The Web platform does **not** suppport `dart:io`, so avoid using the `VideoPlayerController.file` constructor for the plugin. Using the constructor attempts to create a `VideoPlayerController.file` that will throw an `UnimplementedError`.
-
-\* Different web browsers may have different video-playback capabilities (supported formats, autoplay...). Check [package:video_player_web](https://pub.dev/packages/video_player_web) for more web-specific information.
-
-The `VideoPlayerOptions.mixWithOthers` option can't be implemented in web, at least at the moment. If you use this option in web it will be silently ignored.
+            // Workaround for several warnings when building
+            // that the above turns into errors, coming from
+            // org.checkerframework.checker.nullness.qual and 
+            // com.google.errorprone.annotations:
+            // 
+            //   warning: Cannot find annotation method 'value()' in type
+            //   'EnsuresNonNull': class file for
+            //   org.checkerframework.checker.nullness.qual.EnsuresNonNull not found
+            //
+            //   warning: Cannot find annotation method 'replacement()' in type
+            //   'InlineMe': class file for
+            //   com.google.errorprone.annotations.InlineMe not found
+            //
+            // The dependency version are taken from:
+            // https://github.com/google/ExoPlayer/blob/r2.18.1/constants.gradle
+            //
+            // For future reference the dependencies are excluded here:
+            // https://github.com/google/ExoPlayer/blob/r2.18.1/library/common/build.gradle#L33-L34
+            dependencies {
+                implementation "org.checkerframework:checker-qual:3.13.0"
+                implementation "com.google.errorprone:error_prone_annotations:2.10.0"
+            }
+        }
+    }
+}
+```
 
 ## Supported Formats
 
@@ -48,14 +78,13 @@ The `VideoPlayerOptions.mixWithOthers` option can't be implemented in web, at le
   has [audiovisualTypes](https://developer.apple.com/documentation/avfoundation/avurlasset/1386800-audiovisualtypes?language=objc) that you can query for supported av formats.
 - On Android, the backing player is [ExoPlayer](https://google.github.io/ExoPlayer/),
   please refer [here](https://google.github.io/ExoPlayer/supported-formats.html) for list of supported formats.
-- On Web, available formats depend on your users' browsers (vendor and version). Check [package:video_player_web](https://pub.dev/packages/video_player_web) for more specific information.
 
 ## Example
 
 <?code-excerpt "basic.dart (basic-example)"?>
 ```dart
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
+import 'package:video_player_mux/video_player.dart';
 
 void main() => runApp(const VideoApp());
 
@@ -74,7 +103,16 @@ class _VideoAppState extends State<VideoApp> {
   void initState() {
     super.initState();
     _controller = VideoPlayerController.network(
-        'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4')
+        'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
+        //ONLY WORKS FOR ANDROID NOW
+        data: {
+        "env_key": "YOUR_ENV_KEY", //MUST PROVIDE
+        "cpd_player_name": "YOUR_PLAYER_NAME",
+        "cpd_viewer_user_id": "YOUR_VIEWER_USER_ID",
+        "cvd_video_title": "YOUR_VIDEO_TITLE",
+        "cvd_video_id": "YOUR_VIDEO_ID",
+        }
+        )
       ..initialize().then((_) {
         // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
         setState(() {});
