@@ -8,7 +8,7 @@ A Flutter plugin for Android for playing back video on a Widget surface and send
 
 |             | Android |
 |-------------|---------|
-| **Support** | SDK 21+ |
+| **Support** | SDK 24+ |
 
 <img src="/doc/demo_ipod.gif?raw=true" width="200px">
 

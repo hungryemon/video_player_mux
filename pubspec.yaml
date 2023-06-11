@@ -1,9 +1,9 @@
 name: video_player_mux
 description: Flutter plugin for displaying inline video with other Flutter
-  widgets on Android(Monitor Mux Data enabled for Android only).
-repository: https://github.com/hungryemon/video_player_mux/
-issue_tracker: https://github.com/hungryemon/video_player_mux/issues
-version: 1.0.1
+  widgets on Android (Monitor Mux Data enabled for Android only).
+repository: https://github.com/hungryemon/video_player_mux/  #Repository Link
+issue_tracker: https://github.com/hungryemon/video_player_mux/issues #Issues
+version: 1.0.2
 
 environment:
   sdk: ">=2.17.0 <4.0.0"
@@ -19,17 +19,12 @@ flutter:
 dependencies:
   flutter:
     sdk: flutter
-  html: ^0.15.0
-  video_player_android_mux: ^1.0.1
+  html: ^0.15.4
+  #Android Implementation
+  video_player_android_mux: ^1.0.2
+  #Video Player Interface
   video_player_platform_interface_mux: ^1.0.0
-  # video_player_android: 
-  #  git:
-  #   url: git@github.com:hungryemon/video_player_android_mux.git
-  #   ref: 4e52201a552862d2eec15ca183defaf1e90e622a
-  # video_player_platform_interface_mux: 
-  #  git:
-  #   url: git@github.com:hungryemon/video_player_platform_interface_mux.git
-  #   ref: 9ea9201517e15a40d23914902c1989f15caaa693
+  
 
 dev_dependencies:
   flutter_test:

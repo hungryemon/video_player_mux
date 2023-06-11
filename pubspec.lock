@@ -71,10 +71,10 @@ packages:
     dependency: "direct main"
     description:
       name: html
-      sha256: "58e3491f7bf0b6a4ea5110c0c688877460d1a6366731155c4a4580e7ded773e8"
+      sha256: "3a7812d5bcd2894edf53dfaf8cd640876cf6cef50a8f238745c8b8120ea74d3a"
       url: "https://pub.dev"
     source: hosted
-    version: "0.15.3"
+    version: "0.15.4"
   js:
     dependency: transitive
     description:
@@ -188,10 +188,10 @@ packages:
     dependency: "direct main"
     description:
       name: video_player_android_mux
-      sha256: "55c38aa2996b7e0c5de0fb33ceff3846bd37def6a2832880b93a7ae7f6d57a1c"
+      sha256: a49554398ed11d2e1a18569c91e820f954b314787625f0b3e8308ab8bea0f52b
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.2"
   video_player_platform_interface_mux:
     dependency: "direct main"
     description:

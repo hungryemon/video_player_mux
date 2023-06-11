@@ -161,6 +161,15 @@ class _ButterFlyAssetVideoState extends State<_ButterFlyAssetVideo> {
         "cpd_viewer_user_id": "YOUR_VIEWER_USER_ID",
         "cvd_video_title": "YOUR_VIDEO_TITLE",
         "cvd_video_id": "YOUR_VIDEO_ID",
+        "cd_1": "YOUR_CUSTOM_DATA_1",
+        "cd_2": "YOUR_CUSTOM_DATA_2",
+        "cd_3": "YOUR_CUSTOM_DATA_3",
+        "cd_4": "YOUR_CUSTOM_DATA_4",
+        "cd_5": "YOUR_CUSTOM_DATA_5",
+        "cd_6": "YOUR_CUSTOM_DATA_6",
+        "cd_7": "YOUR_CUSTOM_DATA_7",
+        "cd_8": "YOUR_CUSTOM_DATA_8",
+        "cd_9": "YOUR_CUSTOM_DATA_9",
         });
 
     _controller.addListener(() {
@@ -234,6 +243,15 @@ class _BumbleBeeRemoteVideoState extends State<_BumbleBeeRemoteVideo> {
         "cpd_viewer_user_id": "YOUR_VIEWER_USER_ID",
         "cvd_video_title": "YOUR_VIDEO_TITLE",
         "cvd_video_id": "YOUR_VIDEO_ID",
+        "cd_1": "YOUR_CUSTOM_DATA_1",
+        "cd_2": "YOUR_CUSTOM_DATA_2",
+        "cd_3": "YOUR_CUSTOM_DATA_3",
+        "cd_4": "YOUR_CUSTOM_DATA_4",
+        "cd_5": "YOUR_CUSTOM_DATA_5",
+        "cd_6": "YOUR_CUSTOM_DATA_6",
+        "cd_7": "YOUR_CUSTOM_DATA_7",
+        "cd_8": "YOUR_CUSTOM_DATA_8",
+        "cd_9": "YOUR_CUSTOM_DATA_9",
         }
     );
 
@@ -408,7 +426,23 @@ class _PlayerVideoAndPopPageState extends State<_PlayerVideoAndPopPage> {
     super.initState();
 
     _videoPlayerController =
-        VideoPlayerController.asset('assets/Butterfly-209.mp4');
+        VideoPlayerController.asset('assets/Butterfly-209.mp4', 
+        data: {
+        "env_key": "YOUR_ENV_KEY", //MUST PROVIDE
+        "cpd_player_name": "YOUR_PLAYER_NAME",
+        "cpd_viewer_user_id": "YOUR_VIEWER_USER_ID",
+        "cvd_video_title": "YOUR_VIDEO_TITLE",
+        "cvd_video_id": "YOUR_VIDEO_ID",
+        "cd_1": "YOUR_CUSTOM_DATA_1",
+        "cd_2": "YOUR_CUSTOM_DATA_2",
+        "cd_3": "YOUR_CUSTOM_DATA_3",
+        "cd_4": "YOUR_CUSTOM_DATA_4",
+        "cd_5": "YOUR_CUSTOM_DATA_5",
+        "cd_6": "YOUR_CUSTOM_DATA_6",
+        "cd_7": "YOUR_CUSTOM_DATA_7",
+        "cd_8": "YOUR_CUSTOM_DATA_8",
+        "cd_9": "YOUR_CUSTOM_DATA_9",
+        });
     _videoPlayerController.addListener(() {
       if (startedPlaying && !_videoPlayerController.value.isPlaying) {
         Navigator.pop(context);
