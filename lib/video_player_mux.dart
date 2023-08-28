@@ -412,7 +412,9 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
 
     _textureId = (await _videoPlayerPlatform.create(dataSourceDescription)) ??
         kUninitializedTextureId;
+    try{
     _creatingCompleter!.complete(null);
+    }catch(e) {}
     final Completer<void> initializingCompleter = Completer<void>();
 
     void eventListener(VideoEvent event) {
@@ -429,7 +431,9 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
             isInitialized: event.duration != null,
             errorDescription: null,
           );
+          try{
           initializingCompleter.complete(null);
+          } catch(e){}
           _applyLooping();
           _applyVolume();
           _applyPlayPause();
